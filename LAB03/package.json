@@ -1,0 +1,22 @@
+{
+  "name": "lab03",
+  "version": "1.0.0",
+  "description": "Lab03_Simple_Calculator",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Komalpreet101104/COMP2068JSFrameworks.git"
+  },
+  "author": "Komalpreet Kaur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Komalpreet101104/COMP2068JSFrameworks/issues"
+  },
+  "homepage": "https://github.com/Komalpreet101104/COMP2068JSFrameworks#readme",
+  "dependencies": {
+    "connect": "^3.7.0"
+  }
+}
