@@ -1,29 +1,22 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-// Home Route
-router.get('/', function (req, res, next) {
-  res.render('home', { title: 'Home' });
+router.get('/', (req, res) => {
+  res.render('home', { title: 'Home', cssFile: 'home' });
 });
 
-// About Me Route
-router.get('/aboutme', function (req, res, next) {
-  res.render('aboutme', { title: 'About Me' });
+router.get('/aboutme', (req, res) => {
+  res.render('aboutme', { title: 'About Me', cssFile: 'aboutme' });
 });
 
-// Projects Route
-router.get('/projects', function (req, res, next) {
-  res.render('projects', { title: 'Projects' });
+router.get('/projects', (req, res) => {
+  res.render('projects', { title: 'Projects', cssFile: 'projects' });
 });
 
-// Contact Me Route
-router.get('/contactme', function (req, res, next) {
-  res.render('contactme', { title: 'Contact Me' });
-});
-
-// Error Route
-router.use(function (req, res, next) {
-  res.status(404).render('error', { title: '404 - Page Not Found' });
+router.get('/contactme', (req, res) => {
+  res.render('contactme', { title: 'Contact Me', cssFile: 'contactme' });
 });
 
 module.exports = router;
+
+

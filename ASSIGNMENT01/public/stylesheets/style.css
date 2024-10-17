@@ -1,8 +1,826 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+
+body h1,p{
+    padding-left: 125px;
+    padding-top: 45px;
+    padding-right: 50%;
+  }
+
+  body h1{
+color: #faa405;
+
+  }
+  body p{
+    font-size: 22px;
+  }
+
+header {
+  background-color: #f1d8aa5a;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+  
+  nav ul {
+    list-style: none;
+    display: flex;
 }
 
-a {
-  color: #00B7FF;
+nav ul li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bolder;
+    font-size: 20px;
+    position: relative;
+    z-index: 1;
+    font-family: 'Signika Negative', sans-serif;
+}
+
+nav a::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 0;
+    background-color: rgba(244, 168, 4, 0.912);
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+nav a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+  
+  footer {
+    background-color: #f1d8aa5a;
+    color: rgb(8, 8, 8);
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
+  
+
+  section {
+    position: relative;
+    z-index: 3;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  
+  .section-header {
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  
+  .section-header h2 {
+    color: #faa405;
+    font-weight: bold;
+    font-size: 3em;
+    margin-bottom: 20px;
+    font-family: 'Signika Negative', sans-serif;
+    ;
+  }
+  
+  .section-header p {
+    color: #0b0b0b;
+    padding: 80px;
+    font-family: 'Signika Negative', sans-serif;
+    ;
+  }
+  
+  .row {
+      justify-content: center;
+    }
+    
+    .contact-form {
+      width: 100%;
+      justify-content: center;
+      /* max-width: 500px; Set a maximum width for the form */
+      margin-top: 20px; /* Add some space between contact info and form */
+    }
+  
+  .contact-info {
+      padding: 80px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between; /* Adjust as needed */
+    }
+    
+    .contact-info-item {
+      display: flex;
+    }
+  
+  
+    .contact-info-content {
+      margin-left: 20px;
+      color: #333; /* Adjust text color */
+        }
+
+
+
+        .contact-info-content h4 {
+            color: #faa405;
+            font-size: 1.4em;
+            margin-bottom: 5px;
+            font-family: 'Signika Negative', sans-serif;
+          
+          }
+          
+          .contact-info-content p {
+          
+            color: #343131;
+            font-family: 'Signika Negative', sans-serif;
+            font-size: 1em;
+          }
+          
+          .contact-form {
+            background-color: #fff;
+            padding: 200px;
+            padding-bottom: 20px;
+            padding-top: 20px;
+          }
+          
+          .contact-form h2 {
+            font-weight: bold;
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #333;
+            font-family: 'Quattrocento';
+            ;
+          }
+          
+          .contact-form .input-box {
+            position: relative;
+            width: 100%;
+            margin-top: 10px;
+          }
+          
+          .contact-form .input-box input,
+          .contact-form .input-box textarea{
+            width: 100%;
+            padding: 5px 0;
+            font-size: 16px;
+            margin: 10px 0;
+            border: none;
+            border-bottom: 2px solid #333;
+            outline: none;
+            resize: none;
+          }
+          
+          .contact-form .input-box span {
+            position: absolute;
+            left: 0;
+            padding: 5px 0;
+            font-size: 16px;
+            margin: 10px 0;
+            pointer-events: none;
+            transition: 0.5s;
+            color: #666;
+          }
+          
+          .contact-form .input-box input:focus ~ span,
+          .contact-form .input-box textarea:focus ~ span{
+            color: #f3ca7edf;
+            font-size: 12px;
+            transform: translateY(-20px);
+          }
+          
+          .contact-form .input-box input[type="submit"]
+          {
+            width: 100%;
+            background: #edc2725a;
+            color: #FFF;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            font-size: 18px;
+            border: 1px solid #0c0c0c;
+            transition: 0.5s;
+          }
+          
+          .contact-form .input-box input[type="submit"]:hover
+          {
+            background: #FFF;
+            color: #070707;
+          }
+
+          .footer {
+            padding: 20px;
+            text-align: center;
+          }
+          
+          .footer .box-container {
+            display: flex;
+            justify-content: center; /* Center the box container */
+            flex-wrap: wrap; /* Allow the boxes to wrap in smaller viewports */
+          }
+          
+          .footer .box {
+            margin: 10px; /* Space between boxes */
+            padding: 20px;
+          }
+          
+          .footer h4 {
+            color: #faa405;
+            margin-bottom: 10px;
+            font-family: 'Signika Negative', sans-serif;
+          }
+          
+          .footer a {
+            text-decoration: none;
+            color: #333; /* Default link color */
+            display: block; /* Each link will be on a new line */
+            margin: 5px 0; /* Space between links */
+            transition: color 0.3s; /* Smooth color transition */
+          }
+          
+          .footer a:hover {
+            color: #faa405; /* Change color on hover */
+          }
+          
+
+          .footer .social-links {
+            display: flex; /* Use flexbox to arrange links horizontally */
+            justify-content: center; /* Center the links */
+            margin-top: 10px; /* Space between heading and links */
+          }
+          
+          .footer .social-links a {
+            text-decoration: none;
+            color: #333; /* Default link color */
+            display: flex; /* Use flexbox to align icon and text */
+            align-items: center; /* Center vertically */
+            margin: 0 15px; /* Horizontal spacing between links */
+            transition: color 0.3s; /* Smooth color transition */
+          }
+          
+          .footer .social-links a i {
+            margin-right: 5px; /* Space between icon and text */
+            font-size: 1.2em; /* Adjust icon size */
+            color: #faa405; /* Color of the icons */
+          }
+          
+          .footer .social-links a:hover {
+            color: #faa405; /* Change color on hover */
+          }
+
+          .profile-picture-container {
+            display: flex; /* Use flexbox for alignment */
+            justify-content: flex-end; /* Aligns the picture to the right */
+            margin-right: 160px; /* Adds space between the image and the right edge */
+            margin-top: -20px; /* Adjust this value to lift the image up */
+        }
+        
+          
+        .profile-picture {
+            width: 30%; /* Set width for the image */
+            height: 30%; /* Set height for the image */
+            border-radius: 50%; /* Make the image circular */
+            object-fit: cover; /* Ensures the image covers the entire area */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
+            margin-top: -300px; /* Adjust this value to lift the image up */
+        }
+        
+        .button-container {
+          display: flex; /* Align buttons horizontally */
+          justify-content: center; /* Center buttons */
+          margin-top: 20px;
+          margin-left: -35%; /* Adjust this value to push buttons to the left */
+
+        }
+        
+        button {
+          width: 130px;
+          height: 60px;
+          font-size: 17px;
+          margin: 0 10px; /* Horizontal spacing between buttons */
+          font-family: 'Signika Negative', sans-serif;
+          font-weight: bold;
+          transition: 0.5s;
+          border: 2.4px solid #efad335a;
+          background-color: transparent;
+          color: #010101;
+          cursor: pointer;
+          position: relative;
+          z-index: 2;
+        }
+        
+        button:hover {
+          background-color: #f1d8aa5a; /* Add transparency */
+          color: #000;
+          border-color: #f8a204c5;
+        }
+        
+
+        .home-content {
+          text-align: center; /* Center the content */
+          margin: 0 auto;
+          padding: 50px 20px;
+        }
+        
+        .home-content h1,
+        .home-content p {
+          padding-left: 125px;
+          padding-top: 45px;
+          padding-right: 50%;
+          margin: 0 auto; /* Ensure elements stay centered */
+        }
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+
+.about_section{
+    margin: 0px;
+    padding: 0px;
+}
+
+/* ////navigation styling ////*/
+
+.about_section{
+    display: flex;
+    flex-direction: column;
+}
+
+.about_me{
+    display: flex;
+    flex-direction: column;
+}
+/* about_me => heading */
+.about_heading{
+    text-align: center;
+    margin: 20px;
+}
+.about_heading1{
+    font-size: 40px;
+    font-family: Helvetica, sans-serif;
+    font-weight: 550;
+    padding: 10px;
+    color: black;
+}
+.about_para_heading1{
+    font-size: 19px;
+    font-family: Helvetica, sans-serif;
+    color: #faa405;
+    margin: 0px;
+    padding: 0px;
+}
+
+.about_heading2 {
+    font-size: 30px;
+    font-family: Helvetica, sans-serif;
+    font-weight: 550;
+    padding: 10px;
+  
+}
+.about_heading2 span{
+    color: #faa405;
+  
+}
+
+/* //upper div */
+.about_info{
+    display: flex;
+    justify-content: center;
+}
+.about_my_image{
+    display: flex;
+    width: 500px;
+    /* border: 2px solid black; */
+    justify-content: center;
+    margin: 40px;
+  
+}
+
+.about_my_image img{
+    height: 400px;
+   border-radius: 15px;
+   box-shadow: 8px -2px 20px #f5a718;
+}
+
+.about_info_myself{
+    width: 550px;
+    /* border: 2px solid black; */
+    margin: 40px;
+    margin-right: 196px;
+    padding: 10px;
+}
+
+#info_para2{
+    margin-right: 100px;
+}
+
+
+
+.about_paragraph2{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 10px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.about_skill{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.about_skill_section{
+    display: flex;
+    justify-content: center;
+    height: 450px;
+}
+
+.progress_skill{
+    margin: 31px;
+    width: 391px;
+    padding-top: 33px;
+    margin-right: 112px;
+    font-size: 19px;
+}
+
+.progress_bar{
+    padding: 19px;
+    
+}
+
+.progress_bar::-ms-fill {
+    background-color: #faa405;
+}
+
+.about_button{
+    font-size: 20px;
+    background-color:#faa405;
+    color: white;
+    border: #faa405;
+    border-radius: 7px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 20px 5px;
+    width: 200px;
+}
+
+.about_button:hover{
+    background-color: transparent;
+    transition: all 0.4s ease;
+    color:  #faa405;
+}
+
+
+/* products style */
+.products {
+  padding: 50px 0;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.products .title {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  font-family: 'Signika Negative', sans-serif;
+
+
+}
+
+.products .title span {
+  color: #faa405;
+}
+
+.box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 0 20px;
+}
+
+.box {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.box:hover {
+  transform: scale(1.05);
+}
+
+.icons {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: #f1f1f1;
+}
+
+.icons a {
+  color: #faa405;
+  transition: color 0.3s;
+}
+
+.icons a:hover {
+  color: #ef8a07;
+}
+
+.img {
+  height: 200px;
+  overflow: hidden;
+}
+
+.img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.view {
+  font-size: 20px;
+  background-color:#faa405;
+  color: white;
+  border: #faa405;
+  border-radius: 7px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin: 20px 5px;
+  width: 100px;
+}
+
+.view:hover {
+  background-color: transparent;
+  transition: all 0.4s ease;
+  color:  #faa405;
+}
+
+
+
+.stars {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.stars i {
+  margin: 0 5px;
+  color: #faa405;
+}
+
+
+
+
+
+/* contact us page  */
+
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins' , sans-serif;
+}
+.con1
+ {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #faa405;
+}
+.con1::before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: #f3c165;
+}
+section .container
+{
+    position: relative;
+    min-width: 1100px;
+    min-height: 550px;
+    display: flex;
+    z-index: 1000;
+    
+}
+
+section .container .contactinfo {
+    position: absolute;
+    top: 40px;
+    width: 350px;
+    height: calc(100% - 80px);
+    background: #faa405;
+    z-index: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
+}
+section .container .contactinfo h2
+{
+    color: #f1c97f;
+    font-size: 24px;
+    font-weight: 500;
+}
+section .container .contactinfo .info 
+{
+    position: relative;
+    margin: 20px 0;
+}
+section .container .contactinfo .info li 
+{
+    position: relative;
+    list-style: none;
+    display: flex;
+    margin: 20px 0;
+    cursor: pointer;
+    align-items: flex-start;
+}
+section .container .contactinfo .info li span:nth-child(1) 
+{
+    width: 30px;
+    min-width: 30px;
+}
+section .container .contactinfo .info li span:nth-child(1) img 
+{
+    max-width: 100%;
+    filter: invert(1);
+    opacity: 0.5;
+}
+section .container .contactinfo .info li span:nth-child(2) 
+{
+    color: #f4e1be;
+    margin-left: 10px;
+    font-weight: 300;
+    opacity: 0.5;
+}
+section .container .contactinfo .info li:hover span:nth-child(1) img,
+section .container .contactinfo .info li:hover span:nth-child(2) 
+{
+    opacity: 1;
+}
+section .container .contactinfo .sci
+{
+    position: relative;
+    display: flex;
+} 
+section .container .contactinfo .sci li
+ {
+    List-style: none;
+    margin-right: 15px;
+}
+section .container .contactinfo .sci li a
+{
+    text-decoration: none;
+}
+section .container .contactinfo .sci li a img
+{
+    filter: invert(1);
+    opacity: 0.5;
+}
+section .container .contactinfo .sci li:hover a img 
+{
+    opacity: 1;
+}
+section .container .contactForm
+{
+    position: absolute;
+    padding: 70px 50px;
+    background: #fff;
+    margin-left: 150px;
+    width: calc(100% - 150px);  
+    padding-left: 250px;
+    height: 100%;
+    box-shadow: 0 50px 50px rgba(0, 0, 0, 0.5);
+}
+section .container .contactForm h2 
+{
+    color: #0f3959;
+    font-size: 24px;
+    font-weight: 500;
+}
+section .container .contactForm .formBox
+{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 30px;
+}
+section .container .contactForm .formBox .inputBox
+{
+    position: relative;
+    margin: 0 0 35px 0;
+}
+section .container .contactForm .formBox  .inputBox.w50
+{
+    width: 47%;
+} 
+section .container .contactForm .formBox  .inputBox.w100 
+{
+    width: 100%;
+}
+section .container .contactForm .formBox  .inputBox input,
+section .container .contactForm .formBox  .inputBox textarea
+{
+   width: 100% !important;
+   padding: 5px 0;
+   resize: none;
+   font-size: 18px;
+   font-weight: 300;
+   color: #333;
+   border: none;
+   border-bottom: 1px solid #777;
+   outline: none;
+}
+section .container .contactForm .formBox  .inputBox textarea
+{
+    min-height: 120px;
+}
+section .container .contactForm .formBox  .inputBox span 
+{
+    position: absolute;
+    left: 0;
+    padding: 5px 0;
+    font-size: 18px;
+    font-weight: 300;
+    color: #333;
+    transition: 0.5s;
+    pointer-events: none;
+}
+section .container .contactForm .formBox  .inputBox input:focus ~ span,
+section .container .contactForm .formBox  .inputBox textarea:focus ~ span,
+section .container .contactForm .formBox  .inputBox input:valid ~ span,
+section .container .contactForm .formBox  .inputBox textarea:valid ~ span
+{
+   tranSform: translateY(-20px);
+   font-size: 12px;
+   font-weight: 400;
+   Letter-spacing: 1px;
+   color: #f1d8aa5a;
+}
+section .container .contactForm .formBox  .inputBox input[type="submit"]
+{
+   position: relative;
+   cursor: pointer;
+   background:   #faa405;
+   color: black;
+   border: none;
+   max-width: 150px;
+   padding: 12px;
+}
+section .container .contactForm .formBox  .inputBox input[type="submit"]:hover
+{
+   background: #f1d8aa5a;
+} 
+
+/* Additional responsive adjustmwnts */
+
+@media (min-width: 768px) {
+    section {
+        flex-direction: row; /* Align elements horizontally on larger screens */
+    }
+
+    section .container {
+        flex-direction: row; /* Align elements horizontally on larger screens */
+        min-width: 1100px; /* Restore minimum width */
+        min-height: 550px; /* Restore minimum height */
+        padding: 0; /* Reset padding */
+        margin-left: 150px;
+        width: calc(100% - 150px);
+    }
+
+    section .container .contactinfo {
+        position: absolute;
+        top: 40px;
+        width: 350px;
+        height: calc(100% - 80px);
+        padding: 40px;
+        margin: 0;
+    }
+
+    section .container .contactForm {
+        position: absolute;
+        padding: 70px 50px;
+        width: calc(100% - 500px);
+        padding-left: 250px;
+        height: 100%;
+        box-shadow: 0 50px 50px rgba(0, 0, 0, 0.5);
+    }
 }
