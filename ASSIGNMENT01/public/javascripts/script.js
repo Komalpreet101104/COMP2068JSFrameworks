@@ -13,7 +13,6 @@ document.querySelectorAll('.nav-link').forEach((n) => n.addEventListener('click'
   document.body.classList.remove('no-scroll');
 }));
 
-// All Projects Array of Objects
 
 const projects = [
   {
