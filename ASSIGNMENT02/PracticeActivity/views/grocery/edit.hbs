@@ -1,0 +1,6 @@
+<form action="/grocery/edit/{{grocery._id}}" method="post">
+  <input type="text" name="name" value="{{grocery.name}}" required>
+  <input type="number" name="quantity" value="{{grocery.quantity}}" required>
+  <input type="number" name="price" value="{{grocery.price}}" required>
+  <button type="submit">Update Grocery</button>
+</form>

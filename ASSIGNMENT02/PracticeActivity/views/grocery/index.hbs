@@ -1,0 +1,11 @@
+<h1>Grocery List</h1>
+<ul>
+  {{#each groceries}}
+    <li>{{this.name}} - {{this.quantity}} - {{this.price}} 
+      <a href="/grocery/edit/{{this._id}}">Edit</a> 
+      <a href="/grocery/delete/{{this._id}}">Delete</a>
+    </li>
+  {{/each}}
+</ul>
+<a href="/grocery/add">Add Grocery</a>
+
