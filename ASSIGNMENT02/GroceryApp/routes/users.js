@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt'); 
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
@@ -29,11 +30,13 @@ router.post('/register', async function(req, res) {
 
     req.flash('success', 'Registration successful. Please log in.');
     res.redirect('/users/login');
-  } catch (error) {
-    console.error(error);
-    req.flash('error', 'There was an error during registration. Please try again.');
+  } 
+  catch (error) {
+    console.error("Registration Error: ", error.message);  // Log the actual error
+    req.flash('error', `There was an error during registration: ${error.message}`);
     res.redirect('/users/register');
   }
+  
 });
 
 
