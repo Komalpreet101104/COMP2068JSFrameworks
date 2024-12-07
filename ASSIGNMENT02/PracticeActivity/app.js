@@ -65,4 +65,12 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+const flash = require('connect-flash');
+app.use(flash());
+app.use((req, res, next) => {
+  res.locals.messages = req.flash();
+  next();
+});
+
+
 module.exports = app;

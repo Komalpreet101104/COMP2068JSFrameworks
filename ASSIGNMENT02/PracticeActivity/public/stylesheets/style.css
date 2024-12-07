@@ -1,8 +1,80 @@
 body {
   padding: 50px;
+  /* In your public/stylesheets/style.css */
+  
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: black;
+}
+
+/* In your public/stylesheets/style.css */
+
+/* Styling the navbar background */
+.navbar {
+  background-color: #5c1852;  /* Change this to your desired background color */
+}
+
+/* Styling the navbar items */
+.navbar-nav .nav-item .nav-link {
+  color: white;  /* Set link color */
+  font-size: 18px;  /* Adjust font size */
+  padding: 10px 15px;  /* Adjust padding for spacing */
+}
+
+/* Styling links on hover */
+.navbar-nav .nav-item .nav-link:hover {
+  background-color: #aa86ae; /* Change the background color on hover */
+  color: white;  /* Keep text white on hover */
+  border-radius: 4px;  /* Add border-radius for rounded corners */
+}
+
+/* Adjust the container for the navbar (optional) */
+.navbar .container-fluid {
+  padding-left: 20px; /* Optional: Adjust container padding */
+  padding-right: 20px; 
+ /* Optional: Adjust container padding */
+}
+
+/* Optional: Adjust navbar's font weight */
+.navbar-nav .nav-item .nav-link {
+  font-weight: 500; /* Set the font weight */
+}
+
+
+/* In public/stylesheets/style.css */
+.btn-primary {
+  background-color: #5c1852;  /* Green background for Get Started */
+  border-color: #5c1852;
+}
+
+.btn-primary:hover{
+  background-color: #aa86ae;
+}
+
+.btn-outline-secondary {
+  border-color: #040404; /* Red border for Log In */
+  color: #080808; /* Red text */
+}
+
+.btn-outline-secondary:hover {
+  background-color: #aa86ae; /* Red background on hover */
+  color: white; /* White text on hover */
+}
+
+.btn-primary:active, .btn-primary:focus {
+  background-color: #aa86ae; /* Change to the desired color */
+  color: white;
+}
+
+/* For the 'Log In' button */
+.btn-outline-secondary:active, .btn-outline-secondary:focus {
+  background-color: #aa86ae; /* Change to the desired color */
+  color: white;
+}
+
+.welcome-message {
+  margin-bottom: 20px; 
+  margin-top: 60px; /* Adjust this value to control the space between the heading and navbar */
 }
