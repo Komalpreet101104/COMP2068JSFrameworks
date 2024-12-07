@@ -46,23 +46,44 @@ router.get('/login', function(req, res) {
 });
 
 // Login user
-router.post('/login', (req, res, next) => {
-  passport.authenticate('local', (err, user, info) => {
-    if (err) {
-      return next(err);
-    }
+router.post('/login', async (req, res, next) => {
+  const { email, password } = req.body;
+
+  try {
+    // Find user by email
+    const user = await User.findOne({ email });
+
     if (!user) {
-      req.flash('error', info.message);
+      console.log('Login failed: Incorrect email');
+      req.flash('error', 'Invalid email or password');
       return res.redirect('/users/login');
     }
-    req.logIn(user, (err) => {
+
+    // Compare the entered password with the hashed password stored in the DB
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+
+    if (!isPasswordValid) {
+      console.log('Login failed: Incorrect password');
+      req.flash('error', 'Invalid email or password');
+      return res.redirect('/users/login');
+    }
+
+    // If the password is correct, log in the user
+    req.login(user, (err) => {
       if (err) {
+        console.log('Error during login:', err);
         return next(err);
       }
-      return res.redirect('/');
+      return res.redirect('/');  // Redirect to the home page (or another page)
     });
-  })(req, res, next);
+  } catch (error) {
+    console.error('Login Error:', error); // Log the error
+    req.flash('error', 'There was an error during login. Please try again.');
+    return res.redirect('/users/login');
+  }
 });
+
+
 
 
 
