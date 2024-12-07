@@ -11,21 +11,31 @@ router.get('/register', function(req, res) {
 // Register new user
 router.post('/register', async function(req, res) {
   try {
-    const { username, password } = req.body;
+    const { username, email, password } = req.body;
+
+    // Check if the email already exists
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      req.flash('error', 'Email already in use');
+      return res.redirect('/users/register');
+    }
 
     // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // Save the user with the hashed password
-    const user = new User({ username, password: hashedPassword });
+    const user = new User({ username, email, password: hashedPassword });
     await user.save();
 
-    res.redirect('/users/login'); // Redirect to the login page after registration
+    req.flash('success', 'Registration successful. Please log in.');
+    res.redirect('/users/login');
   } catch (error) {
     console.error(error);
-    res.send('Error during registration'); // Display error in case of failure
+    req.flash('error', 'There was an error during registration. Please try again.');
+    res.redirect('/users/register');
   }
 });
+
 
 // Login page
 router.get('/login', function(req, res) {
