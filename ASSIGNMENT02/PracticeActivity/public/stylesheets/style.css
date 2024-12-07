@@ -1,7 +1,7 @@
 body {
   padding: 50px;
   /* In your public/stylesheets/style.css */
-  
+  background-color: rgb(254, 246, 253);
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -12,8 +12,8 @@ a {
 /* In your public/stylesheets/style.css */
 
 /* Styling the navbar background */
-.navbar {
-  background-color: #5c1852;  /* Change this to your desired background color */
+.navbar-custom {
+  background-color: #5c1852; /* Set your custom background color */
 }
 
 /* Styling the navbar items */
@@ -77,4 +77,64 @@ a {
 .welcome-message {
   margin-bottom: 20px; 
   margin-top: 60px; /* Adjust this value to control the space between the heading and navbar */
+}
+
+.category .box-container{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap:1.5rem;
+  padding:0 2rem;
+}
+
+.category .box-container .box img
+{
+  transition: transform 0.3s ease-in-out;
+}
+
+.category .box-container .box:hover img
+{
+  transform: scale(1.1); /* Adjust the scale factor as needed */
+}
+
+.category .box-container a {
+  text-decoration: none; /* Remove underline from category names */
+}
+
+.category .box-container .box{
+  text-align:center;
+  box-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.7);
+  border:0.1rem solid rgba(0, 0, 0, 0.096);
+  border-radius:5px ;
+  overflow: hidden;
+
+}
+
+.category .box-container .box img{
+  height:12rem;
+  width:16.6rem;
+}
+
+.category .box-container .box h3{
+  font-size: 1.5rem;
+  margin: 1rem 0rem;
+  color: #222;
+}
+
+.category .box-container .box:hover h3{
+  color: #720b53;
+}
+
+.title{
+  margin-top: 70px;
+}
+
+.footer {
+  background-color: #5c1852;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  margin-top: 70px;
+}
+.footer .footer-content p {
+  margin: 5px 0;
 }

@@ -9,24 +9,46 @@
 </head>
 <body>
 <h1 class="welcome-message">Welcome to Online Grocery App</h1>
-  <h4>Shop your groceries with ease.</h4>
+  <h4>Grocery Shopping Made Easy, Anytime, Anywhere!</h4>
 
   <a href="/users/register" class="btn btn-primary btn-lg mt-4">Get Started</a>
   <a href="/users/login" class="btn btn-outline-secondary btn-lg mt-4">Log In</a>
 
-<!-- Add the Browse by Category section -->
-<div class="browse-by-category">
-  <h3>Browse by Category</h3>
-  <div class="category-container">
-    {{#each categories}}
-      <div class="category-item">
-        <img src="{{this.image}}" alt="{{this.name}}" class="category-image" />
-        <p>{{this.name}}</p>
-      </div>
-    {{/each}}
-  </div>
-</div>
+ <section class="category">
 
+    <!-- different categories of the product -->
+    <h1 class="title"> EXCLUSIVE <span>CATEGORIES</span>  </h1>
+    
+    <div class="box-container">
+    
+        <a href="#" class="box">
+            <img decoding="async" src="images/fruits1.jpeg" alt="">
+            <h3>Fruits</h3>
+        </a>
+    
+        <a href="#" class="box">
+            <img decoding="async" src="images/vegetables.jpeg" alt="">
+            <h3>Vegetables</h3>
+        </a>
+    
+      
+    
+        <a href="#" class="box">
+            <img decoding="async" src="images/dairy.jpeg" alt="">
+            <h3>Dairy</h3>
+        </a>
+    
+        <a href="#" class="box">
+            <img decoding="async" src="images/bakery.jpeg" alt="">
+            <h3>Bakery</h3>
+        </a>
+    
+    
+    </div>
+    
+    </section>
+    
+    
 
 
 
