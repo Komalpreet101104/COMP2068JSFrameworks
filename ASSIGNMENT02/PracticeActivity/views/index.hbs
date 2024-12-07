@@ -13,5 +13,25 @@
 
   <a href="/users/register" class="btn btn-primary btn-lg mt-4">Get Started</a>
   <a href="/users/login" class="btn btn-outline-secondary btn-lg mt-4">Log In</a>
+
+<!-- Add the Browse by Category section -->
+<div class="browse-by-category">
+  <h3>Browse by Category</h3>
+  <div class="category-container">
+    {{#each categories}}
+      <div class="category-item">
+        <img src="{{this.image}}" alt="{{this.name}}" class="category-image" />
+        <p>{{this.name}}</p>
+      </div>
+    {{/each}}
+  </div>
+</div>
+
+
+
+
+
+
+
 </body>
 </html>
