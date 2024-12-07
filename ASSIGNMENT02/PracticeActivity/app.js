@@ -8,6 +8,7 @@ var logger = require('morgan');
 var mongoose = require("mongoose");
 var session = require("express-session");
 var passport = require("passport");
+var flash = require('connect-flash'); // Make sure it's imported correctly
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var groceryRouter = require('./routes/grocery'); // Route for CRUD operations
@@ -24,29 +25,33 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Passport session setup
-const MongoStore = require('connect-mongo');  // Correctly import connect-mongo
+// Session and flash middleware setup (before passport initialization)
+const MongoStore = require('connect-mongo');
 app.use(session({
   secret: 'your_secret_key', // Use a strong secret in production
   resave: false,
   saveUninitialized: false,
   store: new MongoStore({
-    mongoUrl: process.env.CONNECTION_STRING_MONGODB,  // Use the environment variable
-    collectionName: 'sessions',  // Optional: specify the sessions collection name
+    mongoUrl: process.env.CONNECTION_STRING_MONGODB,
+    collectionName: 'sessions',
   })
 }));
 
-require('./configs/passport'); // Ensure this points to your passport configuration file
+app.use(flash()); // Initialize flash middleware
+app.use((req, res, next) => {
+  res.locals.messages = req.flash(); // Pass flash messages to all views
+  next();
+});
+
+require('./configs/passport'); // Ensure passport config is required after session and flash setup
 
 app.use(passport.initialize());
 app.use(passport.session());
 
 // MongoDB connection
-mongoose.connect(process.env.CONNECTION_STRING_MONGODB, {  // Use the environment variable for MongoDB connection
-  
-})
-.then(() => console.log("MongoDB Connected"))
-.catch(err => console.log("MongoDB connection error: ", err));
+mongoose.connect(process.env.CONNECTION_STRING_MONGODB)
+  .then(() => console.log("MongoDB Connected"))
+  .catch(err => console.log("MongoDB connection error: ", err));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -64,15 +69,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-const flash = require('connect-flash');
-app.use(flash());
-app.use((req, res, next) => {
-  res.locals.messages = req.flash();
-  next();
-});
-
-
-
 
 module.exports = app;

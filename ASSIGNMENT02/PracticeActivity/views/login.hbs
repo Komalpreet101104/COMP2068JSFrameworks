@@ -1,9 +1,14 @@
 <h2>Login</h2>
-{{#if messages}}
-  <div class="alert alert-danger">{{messages}}</div>
-{{else}}
-  <div class="alert alert-info">Please enter your credentials</div>
+<!-- Display error or success messages -->
+{{#if messages.error}}
+  <div class="alert alert-danger">{{messages.error}}</div>
 {{/if}}
+
+
+{{#if flash.success}}
+  <div class="alert alert-success">{{flash.success}}</div>
+{{/if}}
+
 <form action="/users/login" method="POST">
   <div class="mb-3">
     <label for="email" class="form-label">Email</label>

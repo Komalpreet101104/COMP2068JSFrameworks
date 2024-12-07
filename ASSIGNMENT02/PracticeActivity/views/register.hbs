@@ -1,4 +1,11 @@
+{{#if messages.error}}
+  <div class="alert alert-danger">{{messages.error}}</div>
+{{/if}}
 
+
+{{#if flash.success}}
+  <div class="alert alert-success">{{flash.success}}</div>
+{{/if}}
 <h2>Register</h2>
 <form action="/users/register" method="POST">
   <div class="mb-3">

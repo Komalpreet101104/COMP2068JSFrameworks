@@ -19,31 +19,32 @@ passport.deserializeUser((id, done) => {
 passport.use(
   new LocalStrategy(
     {
-      usernameField: 'email', // Use email for login
-      passwordField: 'password', // Use password field
+      usernameField: 'email',
+      passwordField: 'password',
     },
-    (email, password, done) => {
-      // Find user by email
-      User.findOne({ email: email }, (err, user) => {
-        if (err) return done(err);
+    async (email, password, done) => {
+      try {
+        // Find user by email
+        const user = await User.findOne({ email });
 
         if (!user) {
           return done(null, false, { message: 'Incorrect email.' });
         }
 
         // Compare password with the hashed password stored in DB
-        bcrypt.compare(password, user.password, (err, isMatch) => {
-          if (err) return done(err);
-
-          if (isMatch) {
-            return done(null, user); // Successful authentication
-          } else {
-            return done(null, false, { message: 'Incorrect password.' });
-          }
-        });
-      });
+        const isMatch = await bcrypt.compare(password, user.password);
+        
+        if (isMatch) {
+          return done(null, user); // User authenticated
+        } else {
+          return done(null, false, { message: 'Incorrect password.' });
+        }
+      } catch (err) {
+        return done(err);
+      }
     }
   )
 );
+
 
 module.exports = passport;
