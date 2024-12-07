@@ -1,10 +1,10 @@
-const bcrypt = require('bcrypt'); // Import bcrypt for hashing
-const mongoose = require('mongoose'); // Import mongoose for MongoDB schema and model
+const bcrypt = require('bcrypt'); 
+const mongoose = require('mongoose'); 
 
-// Define User Schema
+// To Define User Schema
 var userSchema = new mongoose.Schema({
   username: { type: String, required: true },
-  email: { type: String, required: true, unique: true }, // Added unique email constraint
+  email: { type: String, required: true, unique: true }, 
   password: { type: String, required: true },
 });
 
@@ -16,11 +16,11 @@ userSchema.pre('save', async function (next) {
     }
     next();
   } catch (error) {
-    next(error); // Pass error to the next middleware
+    next(error); 
   }
 });
 
-// Compare Password Method
+// To Compare Password Method
 userSchema.methods.comparePassword = async function (password) {
   try {
     return await bcrypt.compare(password, this.password);
@@ -29,6 +29,5 @@ userSchema.methods.comparePassword = async function (password) {
   }
 };
 
-// Export Model, avoiding overwriting an existing model
 const User = mongoose.models.User || mongoose.model('User', userSchema);
 module.exports = User;

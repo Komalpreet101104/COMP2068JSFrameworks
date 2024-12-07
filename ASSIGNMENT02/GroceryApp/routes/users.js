@@ -8,12 +8,12 @@ router.get('/register', function(req, res) {
   res.render('register');
 });
 
-// Register new user
+// To Register new user
 router.post('/register', async function(req, res) {
   try {
     const { username, email, password } = req.body;
 
-    // Check if the email already exists
+    // To Check if the email already exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       req.flash('error', 'Email already in use');
@@ -23,7 +23,7 @@ router.post('/register', async function(req, res) {
     // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Save the user with the hashed password
+    // For saving the user with the hashed password
     const user = new User({ username, email, password: hashedPassword });
     await user.save();
 

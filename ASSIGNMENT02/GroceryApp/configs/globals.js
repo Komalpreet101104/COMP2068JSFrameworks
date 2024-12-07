@@ -1,4 +1,4 @@
-//this
+
 require("dotenv").config();
 const configurations={
     ConnectionString: {

@@ -1,17 +1,17 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs');
-const User = require('../models/User'); // Assuming you have a User model
+const User = require('../models/User'); 
 
-// Serialize user into session
+// To Serialize user into session
 passport.serializeUser((user, done) => {
-  done(null, user.id); // Store the user ID in the session
+  done(null, user.id); 
 });
 
 // Deserialize user from session
 passport.deserializeUser((id, done) => {
   User.findById(id, (err, user) => {
-    done(err, user); // Retrieve user by ID from DB
+    done(err, user); // To Retrieve user by ID from DB
   });
 });
 
@@ -31,7 +31,7 @@ passport.use(
           return done(null, false, { message: 'Incorrect email.' });
         }
 
-        // Compare password with the hashed password stored in DB
+        // To Compare password with the hashed password stored in DB
         const isMatch = await bcrypt.compare(password, user.password);
         
         if (isMatch) {

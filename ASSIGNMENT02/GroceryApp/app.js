@@ -8,10 +8,10 @@ var logger = require('morgan');
 var mongoose = require("mongoose");
 var session = require("express-session");
 var passport = require("passport");
-var flash = require('connect-flash'); // Make sure it's imported correctly
+var flash = require('connect-flash'); 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var groceryRouter = require('./routes/grocery'); // Route for CRUD operations
+var groceryRouter = require('./routes/grocery'); 
 
 var app = express();
 
@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Session and flash middleware setup (before passport initialization)
 const MongoStore = require('connect-mongo');
 app.use(session({
-  secret: 'your_secret_key', // Use a strong secret in production
+  secret: 'your_secret_key', 
   resave: false,
   saveUninitialized: false,
   store: new MongoStore({
@@ -37,13 +37,14 @@ app.use(session({
   })
 }));
 
-app.use(flash()); // Initialize flash middleware
+// To Initialize flash middleware
+app.use(flash()); 
 app.use((req, res, next) => {
-  res.locals.messages = req.flash(); // Pass flash messages to all views
+  res.locals.messages = req.flash(); 
   next();
 });
 
-require('./configs/passport'); // Ensure passport config is required after session and flash setup
+require('./configs/passport'); 
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -55,9 +56,8 @@ mongoose.connect(process.env.CONNECTION_STRING_MONGODB)
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/grocery', groceryRouter); // Use grocery routes for CRUD operations
+app.use('/grocery', groceryRouter); 
 
-// catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });

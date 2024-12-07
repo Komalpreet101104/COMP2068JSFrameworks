@@ -3,7 +3,6 @@ var router = express.Router();
 var Grocery = require('../models/grocery');
 var passport = require('passport');
 
-// View groceries
 router.get('/', async (req, res) => {
   if (!req.isAuthenticated()) return res.redirect('/users/login');
   try {
@@ -16,7 +15,6 @@ router.get('/', async (req, res) => {
 });
 
 
-// Add grocery
 router.get('/add', function(req, res) {
   res.render('grocery/add');
 });
@@ -28,7 +26,6 @@ router.post('/add', async function(req, res) {
   res.redirect('/grocery');
 });
 
-//edit grocery
 router.get('/edit/:id', async (req, res) => {
   try {
     const grocery = await Grocery.findById(req.params.id);

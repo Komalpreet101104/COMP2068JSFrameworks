@@ -1,6 +1,5 @@
 body {
   padding: 50px;
-  /* In your public/stylesheets/style.css */
   background-color: rgb(254, 246, 253);
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -9,43 +8,37 @@ a {
   color: black;
 }
 
-/* In your public/stylesheets/style.css */
 
-/* Styling the navbar background */
+/* Styling the navbar */
 .navbar-custom {
-  background-color: #5c1852; /* Set your custom background color */
+  background-color: #5c1852; 
 }
 
-/* Styling the navbar items */
+
 .navbar-nav .nav-item .nav-link {
-  color: white;  /* Set link color */
-  font-size: 18px;  /* Adjust font size */
-  padding: 10px 15px;  /* Adjust padding for spacing */
+  color: white;  
+  font-size: 18px;  
+  padding: 10px 15px;  
 }
 
-/* Styling links on hover */
 .navbar-nav .nav-item .nav-link:hover {
-  background-color: #aa86ae; /* Change the background color on hover */
-  color: white;  /* Keep text white on hover */
-  border-radius: 4px;  /* Add border-radius for rounded corners */
+  background-color: #aa86ae; 
+  color: white;  
+  border-radius: 4px; 
 }
 
-/* Adjust the container for the navbar (optional) */
 .navbar .container-fluid {
-  padding-left: 20px; /* Optional: Adjust container padding */
+  padding-left: 20px;
   padding-right: 20px; 
- /* Optional: Adjust container padding */
 }
 
-/* Optional: Adjust navbar's font weight */
 .navbar-nav .nav-item .nav-link {
-  font-weight: 500; /* Set the font weight */
+  font-weight: 500; 
 }
 
 
-/* In public/stylesheets/style.css */
 .btn-primary {
-  background-color: #5c1852;  /* Green background for Get Started */
+  background-color: #5c1852; 
   border-color: #5c1852;
 }
 
@@ -54,29 +47,28 @@ a {
 }
 
 .btn-outline-secondary {
-  border-color: #040404; /* Red border for Log In */
-  color: #080808; /* Red text */
+  border-color: #040404; 
+  color: #080808;
 }
 
 .btn-outline-secondary:hover {
-  background-color: #aa86ae; /* Red background on hover */
-  color: white; /* White text on hover */
-}
-
-.btn-primary:active, .btn-primary:focus {
-  background-color: #aa86ae; /* Change to the desired color */
+  background-color: #aa86ae; 
   color: white;
 }
 
-/* For the 'Log In' button */
+.btn-primary:active, .btn-primary:focus {
+  background-color: #aa86ae; 
+  color: white;
+}
+
 .btn-outline-secondary:active, .btn-outline-secondary:focus {
-  background-color: #aa86ae; /* Change to the desired color */
+  background-color: #aa86ae; 
   color: white;
 }
 
 .welcome-message {
   margin-bottom: 20px; 
-  margin-top: 60px; /* Adjust this value to control the space between the heading and navbar */
+  margin-top: 60px; 
 }
 
 .category .box-container{
@@ -93,11 +85,11 @@ a {
 
 .category .box-container .box:hover img
 {
-  transform: scale(1.1); /* Adjust the scale factor as needed */
+  transform: scale(1.1); 
 }
 
 .category .box-container a {
-  text-decoration: none; /* Remove underline from category names */
+  text-decoration: none;
 }
 
 .category .box-container .box{
